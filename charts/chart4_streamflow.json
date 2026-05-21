@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Annual Streamflow — Cotter River 1964–2023",
+    "subtitle": "BOM Hydrologic Reference Station 410730. Average: 42.77 GL/year",
+    "fontSize": 14,
+    "subtitleFontSize": 11,
+    "color": "#1a1a2e"
+  },
+  "width": 600,
+  "height": 260,
+  "data": {"url": "data/streamflow_annual.csv"},
+  "layer": [
+    {
+      "mark": {"type": "bar", "opacity": 0.7},
+      "encoding": {
+        "x": {"field": "year", "type": "quantitative", "axis": {"title": "Year", "format": "d"}},
+        "y": {"field": "streamflow_GL", "type": "quantitative", "axis": {"title": "Streamflow (GL)"}},
+        "color": {
+          "condition": {"test": "datum.streamflow_GL < 42.77", "value": "#e76f51"},
+          "value": "#2a9d8f"
+        },
+        "tooltip": [
+          {"field": "year", "type": "quantitative", "title": "Year"},
+          {"field": "streamflow_GL", "type": "quantitative", "title": "Streamflow (GL)", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "rule", "color": "#264653", "strokeWidth": 1.5, "strokeDash": [5,3]},
+      "encoding": {"y": {"datum": 42.77}}
+    },
+    {
+      "data": {"values": [{"year": 1966, "y": 46, "label": "Long-term avg: 42.77 GL"}]},
+      "mark": {"type": "text", "fontSize": 10, "color": "#264653", "align": "left"},
+      "encoding": {
+        "x": {"field": "year", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    }
+  ]
+}

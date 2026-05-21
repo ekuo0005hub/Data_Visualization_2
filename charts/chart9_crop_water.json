@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Water Applied to Crops in the Murray-Darling Basin",
+    "subtitle": "Comparing dry year (2019-20) vs wet year (2020-21) — megalitres (ML)",
+    "fontSize": 14,
+    "subtitleFontSize": 11,
+    "color": "#1a1a2e"
+  },
+  "width": 520,
+  "height": 300,
+  "data": {"url": "data/crop_water_use.csv"},
+  "mark": {"type": "bar", "cornerRadiusEnd": 3},
+  "encoding": {
+    "y": {
+      "field": "crop", "type": "nominal",
+      "sort": {"field": "water_ML", "order": "descending"},
+      "axis": {"title": null, "labelFontSize": 12}
+    },
+    "x": {
+      "field": "water_ML", "type": "quantitative",
+      "axis": {"title": "Water Applied (ML)", "format": "~s"}
+    },
+    "color": {
+      "field": "year", "type": "nominal",
+      "scale": {"domain": ["2019-20", "2020-21"], "range": ["#e76f51", "#2a9d8f"]},
+      "legend": {"title": "Year", "orient": "bottom-right"}
+    },
+    "xOffset": {"field": "year", "type": "nominal"},
+    "tooltip": [
+      {"field": "crop", "title": "Crop"},
+      {"field": "year", "title": "Year"},
+      {"field": "water_ML", "type": "quantitative", "title": "Water Used (ML)", "format": ",.0f"}
+    ]
+  }
+}

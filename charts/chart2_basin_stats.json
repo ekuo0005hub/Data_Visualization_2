@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Basin vs Rest of Australia — Agricultural Contribution",
+    "fontSize": 14,
+    "color": "#1a1a2e"
+  },
+  "width": 400,
+  "height": 200,
+  "data": {
+    "values": [
+      {"category": "Murray-Darling Basin", "value": 40, "label": "40%"},
+      {"category": "Rest of Australia", "value": 60, "label": "60%"}
+    ]
+  },
+  "mark": {"type": "bar", "cornerRadiusEnd": 4},
+  "encoding": {
+    "y": {"field": "category", "type": "nominal", "axis": {"labelFontSize": 13, "title": null}, "sort": "-x"},
+    "x": {
+      "field": "value", "type": "quantitative",
+      "axis": {"title": "Share of national agricultural output (%)", "titleFontSize": 12},
+      "scale": {"domain": [0, 100]}
+    },
+    "color": {
+      "field": "category", "type": "nominal",
+      "scale": {"domain": ["Murray-Darling Basin", "Rest of Australia"], "range": ["#2a9d8f", "#b0c4c0"]},
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "category", "type": "nominal", "title": "Region"},
+      {"field": "label", "type": "nominal", "title": "Share"}
+    ]
+  }
+}
