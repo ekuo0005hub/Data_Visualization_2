@@ -37,11 +37,7 @@ body {
 }
  
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 70% 50%, rgba(42,157,143,0.35) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(69,123,157,0.25) 0%, transparent 50%);
+  display: none;
 }
  
 .hero-inner {
