@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Value of Wheat Production in Australia 2016–2022",
-    "subtitle": "Dramatic recovery after 2019-20 drought — wheat value doubled in two years",
+    "text": "Value of Wheat Production in Australia from 2016–2022",
+    "subtitle": "Dramatic recovery after 2019-20 drought, wheat value doubled in two years",
     "fontSize": 14,
     "subtitleFontSize": 11,
     "color": "#1a1a2e"
