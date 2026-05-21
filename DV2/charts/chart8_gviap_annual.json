@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Gross Value of Irrigated Agricultural Production 2006–2020",
+    "subtitle": "Total value of irrigated farming across the Murray-Darling Basin (ABARES)",
+    "fontSize": 14,
+    "subtitleFontSize": 11,
+    "color": "#1a1a2e"
+  },
+  "width": 580,
+  "height": 260,
+  "data": {"url": "data/gviap_annual.csv"},
+  "layer": [
+    {
+      "mark": {"type": "bar", "color": "#e76f51", "opacity": 0.85, "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal", "axis": {"title": "Year", "labelAngle": -45}},
+        "y": {"field": "gviap_billion", "type": "quantitative", "axis": {"title": "Value (AUD Billion)"}},
+        "tooltip": [
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "gviap_billion", "type": "quantitative", "title": "Value ($B)", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [
+        {"year": "2009", "gviap_billion": 5.9, "label": "Millennium\nDrought"},
+        {"year": "2020", "gviap_billion": 6.4, "label": "2019–20\nDrought"}
+      ]},
+      "mark": {"type": "text", "fontSize": 10, "color": "#e63946", "dy": -20},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "gviap_billion", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    }
+  ]
+}

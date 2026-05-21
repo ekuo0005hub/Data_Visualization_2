@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Value of Wheat Production in Australia 2016–2022",
+    "subtitle": "Dramatic recovery after 2019-20 drought — wheat value doubled in two years",
+    "fontSize": 14,
+    "subtitleFontSize": 11,
+    "color": "#1a1a2e"
+  },
+  "width": 520,
+  "height": 260,
+  "data": {"url": "data/wheat_value.csv"},
+  "layer": [
+    {
+      "mark": {"type": "area", "color": "#e9c46a", "opacity": 0.35, "line": false}
+    },
+    {
+      "mark": {"type": "line", "color": "#e9c46a", "strokeWidth": 2.5, "point": {"filled": true, "color": "#e9c46a", "size": 80}}
+    },
+    {
+      "data": {"values": [{"year": "2019-20", "value_million": 5200, "label": "Drought low"}]},
+      "mark": {"type": "text", "fontSize": 11, "color": "#e63946", "dy": -12, "fontWeight": "bold"},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "value_million", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    }
+  ],
+  "encoding": {
+    "x": {"field": "year", "type": "ordinal", "axis": {"title": "Financial Year", "labelAngle": -30}},
+    "y": {
+      "field": "value_million",
+      "type": "quantitative",
+      "axis": {"title": "Value (AUD Millions)", "format": "~s"}
+    },
+    "tooltip": [
+      {"field": "year", "title": "Year"},
+      {"field": "value_million", "type": "quantitative", "title": "Value ($M)", "format": ",.1f"}
+    ]
+  }
+}

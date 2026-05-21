@@ -1,0 +1,46 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "The Murray-Darling Basin",
+    "subtitle": "Highlighted across southeastern Australia",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "color": "#1a1a2e",
+    "subtitleColor": "#555"
+  },
+  "width": 560,
+  "height": 420,
+  "projection": {"type": "mercator", "center": [135, -27], "scale": 800},
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {"type": "geoshape", "fill": "#e8f4f0", "stroke": "#aaa", "strokeWidth": 0.8}
+    },
+    {
+      "data": {
+        "url": "data/mdb_boundary.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {"type": "geoshape", "fill": "#2a9d8f", "fillOpacity": 0.55, "stroke": "#264653", "strokeWidth": 1.5}
+    },
+    {
+      "data": {"values": [
+        {"lon": 146.5, "lat": -33.5, "label": "Murray-Darling\nBasin"},
+        {"lon": 151.2, "lat": -33.9, "label": "Sydney"},
+        {"lon": 144.9, "lat": -37.8, "label": "Melbourne"},
+        {"lon": 138.6, "lat": -34.9, "label": "Adelaide"},
+        {"lon": 149.1, "lat": -35.3, "label": "Canberra"},
+        {"lon": 153.0, "lat": -27.5, "label": "Brisbane"}
+      ]},
+      "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold", "color": "#264653"},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "label", "type": "nominal"}
+      }
+    }
+  ]
+}
