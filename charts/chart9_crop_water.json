@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Water Applied to Crops in the Murray-Darling Basin",
-    "subtitle": "Comparing dry year (2019-20) vs wet year (2020-21) — megalitres (ML)",
+    "subtitle": "Comparing dry year (2019-20) vs wet year (2020-21) in megalitres (ML)",
     "fontSize": 14,
     "subtitleFontSize": 11,
     "color": "#1a1a2e"
