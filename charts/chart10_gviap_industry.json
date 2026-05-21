@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Agricultural Value by Industry — Murray-Darling Basin",
+    "text": "Agricultural Value by Industry Murray-Darling Basin",
     "subtitle": "Select a year to explore how industry contributions shift with water availability",
     "fontSize": 14,
     "subtitleFontSize": 11,
