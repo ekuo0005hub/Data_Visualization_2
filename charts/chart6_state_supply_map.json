@@ -1,60 +1,148 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Average Water Runoff by State (2001–2021)",
+    "text": "Average Water Runoff by State (2001-2021)",
     "subtitle": "NSW dominates upstream water availability; SA receives the least",
     "fontSize": 14,
     "subtitleFontSize": 11,
-    "color": "#1a1a2e"
+    "color": "#1a1a2e",
+    "subtitleColor": "#555"
   },
-  "width": 500,
+  "width": 460,
   "height": 380,
-  "projection": {"type": "mercator", "center": [135, -27], "scale": 750},
+  "projection": {
+    "type": "mercator",
+    "center": [
+      136,
+      -28
+    ],
+    "scale": 650
+  },
   "layer": [
     {
       "data": {
         "url": "data/australia_states.geojson",
-        "format": {"type": "json", "property": "features"}
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
       },
       "transform": [
         {
           "lookup": "properties.STATE_NAME",
           "from": {
-            "data": {"url": "data/state_avg_supply.csv"},
+            "data": {
+              "url": "data/state_avg_supply.csv"
+            },
             "key": "STATE_NAME",
-            "fields": ["avg_runoff_GL"]
+            "fields": [
+              "avg_runoff_GL"
+            ]
           }
         }
       ],
-      "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 1},
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.2
+      },
       "encoding": {
         "color": {
           "condition": {
             "test": "datum.avg_runoff_GL != null",
             "field": "avg_runoff_GL",
             "type": "quantitative",
-            "scale": {"scheme": "blues", "domain": [0, 3500]},
-            "legend": {"title": "Avg Runoff (GL)", "orient": "bottom-right"}
+            "scale": {
+              "scheme": "blues",
+              "domain": [
+                0,
+                3500
+              ]
+            },
+            "legend": {
+              "title": "Avg Runoff (GL)",
+              "orient": "bottom-right",
+              "titleFontSize": 11,
+              "labelFontSize": 10
+            }
           },
-          "value": "#e8f4f0"
+          "value": "#ddeee8"
         },
         "tooltip": [
-          {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
-          {"field": "avg_runoff_GL", "type": "quantitative", "title": "Avg Runoff (GL)", "format": ",.0f"}
+          {
+            "field": "properties.STATE_NAME",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "avg_runoff_GL",
+            "type": "quantitative",
+            "title": "Avg Runoff (GL)",
+            "format": ",.0f"
+          }
         ]
       }
     },
     {
-      "data": {"values": [
-        {"lon": 146.5, "lat": -32.0, "label": "NSW\n3,385 GL"},
-        {"lon": 144.5, "lat": -36.5, "label": "VIC\n1,463 GL"},
-        {"lon": 135.5, "lat": -30.0, "label": "SA\n230 GL"}
-      ]},
-      "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold", "color": "#1a1a2e"},
+      "data": {
+        "values": [
+          {
+            "lon": 146.5,
+            "lat": -32,
+            "label": "NSW  3,385 GL"
+          },
+          {
+            "lon": 143.5,
+            "lat": -36.8,
+            "label": "VIC  1,463 GL"
+          },
+          {
+            "lon": 135.5,
+            "lat": -31,
+            "label": "SA  230 GL"
+          },
+          {
+            "lon": 121,
+            "lat": -25.5,
+            "label": "WA"
+          },
+          {
+            "lon": 133,
+            "lat": -20,
+            "label": "NT"
+          },
+          {
+            "lon": 146.5,
+            "lat": -22,
+            "label": "QLD"
+          },
+          {
+            "lon": 146.5,
+            "lat": -42,
+            "label": "TAS"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1a1a2e",
+        "opacity": 0.75
+      },
       "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude": {"field": "lat", "type": "quantitative"},
-        "text": {"field": "label", "type": "nominal"}
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
       }
     }
   ]
