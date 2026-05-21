@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Annual Rainfall Decline — Wagga Wagga (NSW) 1960–2024",
-    "subtitle": "BOM Station 065000 — a key southern basin region",
+    "text": "Annual Rainfall Decline in Wagga Wagga (NSW) 1960–2024",
+    "subtitle": "BOM Station 065000 is a key southern basin region",
     "fontSize": 14,
     "subtitleFontSize": 11,
     "color": "#1a1a2e"
