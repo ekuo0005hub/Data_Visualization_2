@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Water Supply vs Agricultural Value — The Core Correlation",
+    "text": "Water Supply vs Agricultural Value",
     "subtitle": "When water runs low, agricultural output drops. Two datasets merged by year.",
     "fontSize": 14,
     "subtitleFontSize": 11,
@@ -18,7 +18,7 @@
         "y": {
           "field": "total_runoff_GL",
           "type": "quantitative",
-          "axis": {"title": "Water Supply — Total Runoff (GL)", "titleColor": "#457b9d"},
+          "axis": {"title": "Water Supply Total Runoff (GL)", "titleColor": "#457b9d"},
           "scale": {"domain": [3000, 11000]}
         },
         "tooltip": [
