@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Annual Streamflow — Cotter River 1964–2023",
-    "subtitle": "BOM Hydrologic Reference Station 410730. Average: 42.77 GL/year",
+    "text": "Annual Streamflow in Cotter River 1964–2023",
+    "subtitle": "BOM Hydrologic Reference Station 410730 (Average: 42.77 GL/year)",
     "fontSize": 14,
     "subtitleFontSize": 11,
     "color": "#1a1a2e"
